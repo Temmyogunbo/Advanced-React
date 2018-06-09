@@ -1,0 +1,70 @@
+{
+  "name": "advanced-react",
+  "version": "1.0.0",
+  "description": "Advanced React",
+  "main": "lib/server.js",
+  "repository": "https://github.com/temmyogunbo",
+  "author": "Temmyogunbo",
+  "license": "MIT",
+  "scripts": {
+    "start-dev": "NODE_PATH=./lib nodemon --watch lib --exec babel-node -- lib/server.js",
+    "dev": "NODE_PATH=./lib pm2 start ./node_modules/.bin lib/server.js --watch --interpreter babel-node --name appProd",
+    "webpack": "webpack",
+    "test": "jest --watchAll",
+    "coverage": "jest --coverage",
+    "build-node": "babel lib -d build --copy-files",
+    "start-prod": "yarn build-node && NODE_ENV=production NODE_PATH=./build pm2 start ./node_modules/.bin build/server.js -i max --name appProd"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.19.1",
+    "eslint-plugin-react": "^7.8.2",
+    "jest": "^22.4.4",
+    "nodemon": "^1.17.5",
+    "object-assign": "^4.1.1",
+    "prop-types": "^15.6.1",
+    "react-addons-perf": "^15.4.2",
+    "react-test-renderer": "15.6.2",
+    "webpack-cli": "^2.1.4",
+    "webpack-command": "^0.2.0"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "json-loader": "^0.5.7",
+    "lodash.debounce": "^4.0.8",
+    "lodash.pickby": "^4.6.0",
+    "pm2": "^2.10.4",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "webpack": "^4.9.1"
+  },
+  "babel": {
+    "presets": [
+      "react",
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "transform-class-properties",
+      "transform-object-rest-spread"
+    ]
+  }
+}
