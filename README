@@ -1,0 +1,10 @@
+This project is a followed tutorial on [pluralsight](http://pluralsight.com). It touches advanced part of react with self built state management. The author of the course is Samer Buna. Concept used in this project includes:
+* Server-side rendering in react
+* Higher order component
+* Context API
+* State management without tools like redux or mobx, etc
+
+How to test this project
+* Clone the project
+* `Yarn install` packages
+* `Yarn dev` to start script
